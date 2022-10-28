@@ -2,7 +2,6 @@
 
 Sequel.connect(Settings.db.to_hash)
 
-Sequel.extension :migration
 Sequel::Model.db.extension(:pagination)
 
 Sequel::Model.plugin :validation_helpers

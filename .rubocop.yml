@@ -3,6 +3,7 @@ AllCops:
   SuggestExtensions: false
   Exclude:
     - "bin/**"
+    - "db/**/*"
 
 Layout/SpaceInLambdaLiteral:
   EnforcedStyle: require_space
