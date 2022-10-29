@@ -143,6 +143,8 @@ PLATFORMS
 DEPENDENCIES
   config
   database_cleaner-sequel
+  dry-types
+  dry-validation
   factory_bot
   jwt
   pg
