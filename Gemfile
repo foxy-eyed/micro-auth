@@ -11,6 +11,7 @@ gem "sinatra-contrib"
 
 # business logic
 gem "config"
+gem "dry-monads"
 gem "dry-types"
 gem "dry-validation"
 gem "jwt"
