@@ -15,7 +15,15 @@ class SessionRoutes < Application
   end
 
   get "/" do
-    result = { route: "get session", status: "success" }
-    json result.to_json
+    result = Sessions::Fetch.new.call(request.env["HTTP_AUTHORIZATION"])
+    if result.success?
+      session = result.value!
+      meta = { user_id: session.user_id }
+
+      status 200
+      json meta: meta
+    else
+      process_failure(result)
+    end
   end
 end
