@@ -26,6 +26,7 @@ gem "sequel_secure_password"
 gem "rake"
 
 group :test, :development do
+  gem "faker"
   gem "rubocop", require: false
   gem "rubocop-rspec"
 end
