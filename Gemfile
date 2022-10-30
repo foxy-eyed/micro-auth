@@ -6,6 +6,7 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 # transport
 gem "puma"
+gem "rack-contrib"
 gem "sinatra", require: "sinatra/base"
 gem "sinatra-contrib"
 

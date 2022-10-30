@@ -3,7 +3,9 @@
 require_relative "config/environment"
 require_relative "config/boot"
 
-map "/login" do
+use Rack::JSONBodyParser
+
+map "/signup" do
   run UserRoutes
 end
 

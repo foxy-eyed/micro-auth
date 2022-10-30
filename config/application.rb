@@ -3,6 +3,7 @@
 class Application < Sinatra::Base
   configure do
     register Sinatra::Namespace
+    register Api::FailureProcessor
 
     set :app_file, File.expand_path("../config.ru", __dir__)
   end
