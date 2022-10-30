@@ -1,12 +1,9 @@
 # frozen_string_literal: true
 
 module Users
-  class Create
-    include Dry::Monads[:result, :try]
-    include Dry::Monads::Do.for(:call)
-
+  class Create < BaseService
     def initialize(contract = UserContract.new)
-      @contract = contract
+      super(contract)
     end
 
     def call(params)
@@ -15,14 +12,6 @@ module Users
     end
 
     private
-
-    attr_reader :contract
-
-    def validate_contract(params)
-      contract.call(params)
-              .to_monad
-              .or { |result| Failure([:unprocessable_entity, result.errors.to_h]) }
-    end
 
     def create_user(attributes)
       Try[Sequel::Error] { User.create(**attributes) }.to_result
