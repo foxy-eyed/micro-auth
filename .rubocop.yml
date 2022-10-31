@@ -4,6 +4,7 @@ AllCops:
   Exclude:
     - "bin/**"
     - "db/**/*"
+    - "vendor/**/*"
 
 Layout/SpaceInLambdaLiteral:
   EnforcedStyle: require_space
