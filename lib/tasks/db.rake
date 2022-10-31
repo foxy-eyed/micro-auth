@@ -16,4 +16,17 @@ namespace :db do
       File.write(schema_file, db.dump_schema_migration(same_db: true))
     end
   end
+
+  desc "DB seed"
+  task seed: :settings do
+    require "sequel"
+    require "sequel/extensions/seed"
+    require_relative "../../config/boot"
+    Sequel::Seed.setup(ENV.fetch("RACK_ENV"))
+    Sequel.extension :seed
+
+    Sequel.connect(Settings.db.to_hash) do |db|
+      Sequel::Seeder.apply(db, File.expand_path("../../db/seeds", __dir__))
+    end
+  end
 end

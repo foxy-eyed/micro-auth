@@ -29,6 +29,7 @@ group :test, :development do
   gem "faker"
   gem "rubocop", require: false
   gem "rubocop-rspec"
+  gem "sequel-seed"
 end
 
 group :test do
