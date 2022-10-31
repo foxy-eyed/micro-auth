@@ -3,9 +3,9 @@ name: Lint and test
 on: [push]
 
 env:
-  POSTGRES_DB: micro_auth
-  POSTGRES_USER: postgres
-  POSTGRES_PASSWORD: postgres
+  ENV__DB__DATABASE: micro_auth
+  ENV__DB__USER: postgres
+  ENV__DB__PASSWORD: postgres
 
 jobs:
   lint:
@@ -17,9 +17,9 @@ jobs:
       postgres:
         image: postgres:latest
         env:
-          POSTGRES_DB: ${{ env.POSTGRES_DB }}
-          POSTGRES_USER: ${{ env.POSTGRES_USER }}
-          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
+          POSTGRES_DB: ${{ env.ENV__DB__DATABASE }}
+          POSTGRES_USER: ${{ env.ENV__DB__USER }}
+          POSTGRES_PASSWORD: ${{ env.ENV__DB__PASSWORD }}
         ports:
           - 5432:5432
         options:
