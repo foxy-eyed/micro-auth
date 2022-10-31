@@ -14,4 +14,10 @@ module ApiHelpers
   def response_json
     JSON.parse(last_response.body)
   end
+
+  def auth_header_for(user)
+    session = create(:session, user: user)
+    token = JwtEncoder.new(Settings.app.secret).encode(uuid: session.uuid)
+    "Bearer #{token}"
+  end
 end
