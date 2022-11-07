@@ -7,7 +7,7 @@ class BaseService
     @contract = contract
   end
 
-  def call(_)
+  def call(_params)
     raise NotImplementedError
   end
 

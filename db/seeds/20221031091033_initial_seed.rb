@@ -2,14 +2,20 @@
 
 Sequel.seed do
   def run
+    users = create_users(10)
+    users.sample(5).each { |user| create_session(user) }
+  end
+
+  def create_users(count)
     users = []
-    10.times do
-      users << User.create(name: Faker::Name.name,
-                           email: Faker::Internet.unique.email,
+    count.times do
+      users << User.create(name: Faker::Name.name, email: Faker::Internet.unique.email,
                            password: Faker::Alphanumeric.alpha(number: 8))
     end
-    users.sample(5).each do |user|
-      user.add_session(Session.new)
-    end
+    users
+  end
+
+  def create_session(user)
+    user.add_session(Session.new)
   end
 end

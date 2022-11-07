@@ -4,11 +4,15 @@ require "bundler/setup"
 
 Bundler.require(:default, ENV.fetch("RACK_ENV"))
 
+def require_dir(path)
+  Dir[File.expand_path(path, __dir__)].each { |f| require f }
+end
+
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), "..", "lib"))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), "..", "app"))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 
-Dir[File.expand_path("../lib/**/*.rb", __dir__)].each { |f| require f }
-Dir[File.expand_path("../config/initializers/*.rb", __dir__)].each { |f| require f }
-Dir[File.expand_path("../config/**/*.rb", __dir__)].each { |f| require f }
-Dir[File.expand_path("../app/**/*.rb", __dir__)].each { |f| require f }
+require_dir("../lib/**/*.rb")
+require_dir("../config/initializers/*.rb")
+require_dir("../config/**/*.rb")
+require_dir("../app/**/*.rb")
