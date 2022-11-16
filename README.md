@@ -26,16 +26,19 @@ bundle exec rake db:migrate
 bundle exec rake db:seed
 ```
 
-## To run the app
+## HTTP
+### To run the app
 ```
-bundle exec rackup
+bin/http
 ```
-The app is running by default at `http://localhost:9292`
+The app is running by default at `http://localhost:3001`.
+
+To change the port edit file `config/settings.yml`.
 
 ## Endpoints
 ### Signup
 ```
-POST http://localhost:9292/signup
+POST http://localhost:3001/signup
 
 PARAMS
 {
@@ -64,7 +67,7 @@ OR
 
 ### Login
 ```
-POST http://localhost:9292/auth
+POST http://localhost:3001/auth
 
 PARAMS
 {
@@ -94,7 +97,7 @@ OR
 
 ### Auth
 ```
-GET http://localhost:9292/auth
+GET http://localhost:3001/auth
 
 Header:
 

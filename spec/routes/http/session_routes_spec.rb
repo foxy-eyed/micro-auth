@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe SessionRoutes, type: :request do
+RSpec.describe HTTP::SessionRoutes, type: :request do
   describe "POST /auth" do
     subject(:login) { post "/", **params }
 

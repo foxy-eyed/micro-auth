@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe UserRoutes, type: :request do
+RSpec.describe HTTP::UserRoutes, type: :request do
   describe "POST /signup" do
     subject(:signup) { post "/", **params }
 
@@ -19,7 +19,7 @@ RSpec.describe UserRoutes, type: :request do
       end
 
       it "creates new record" do
-        expect { signup }.to change(User, :count).by(1)
+        expect { signup }.to change(Auth::User, :count).by(1)
       end
     end
 
@@ -37,7 +37,7 @@ RSpec.describe UserRoutes, type: :request do
       end
 
       it "does not create new record" do
-        expect { signup }.not_to change(User, :count)
+        expect { signup }.not_to change(Auth::User, :count)
       end
 
       it "renders errors" do
