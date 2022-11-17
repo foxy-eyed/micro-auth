@@ -35,7 +35,13 @@ The app is running by default at `http://localhost:3001`.
 
 To change the port edit file `config/settings.yml`.
 
-## Endpoints
+## RPC
+### To run the app
+```
+bin/rpc
+```
+
+## HTTP Endpoints
 ### Signup
 ```
 POST http://localhost:3001/signup

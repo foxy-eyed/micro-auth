@@ -5,6 +5,7 @@ source "https://rubygems.org"
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 # transport
+gem "bunny"
 gem "puma"
 gem "rack-contrib"
 gem "sinatra", require: "sinatra/base"

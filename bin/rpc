@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require_relative "../config/environment"
+require_relative "../config/boot"
+
+puts "== Starting application =="
+puts "* Environment #{ENV['RACK_ENV']}"
+puts "* Use Ctrl-C to stop"
+
+begin
+  loop { sleep 3 }
+rescue Interrupt
+  puts "== Application stopped =="
+end
