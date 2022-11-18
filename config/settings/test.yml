@@ -1,2 +1,5 @@
 db:
   database: micro_auth_test
+logger:
+  level: error
+  log_path: log/test.log

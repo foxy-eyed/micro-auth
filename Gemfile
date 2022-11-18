@@ -24,6 +24,8 @@ gem "sequel"
 gem "sequel_secure_password"
 
 # other
+gem "rack-ougai"
+gem "rack-request-id"
 gem "rake"
 
 group :test, :development do
