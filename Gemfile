@@ -5,6 +5,7 @@ source "https://rubygems.org"
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 # transport
+gem "bunny"
 gem "puma"
 gem "rack-contrib"
 gem "sinatra", require: "sinatra/base"
@@ -23,9 +24,12 @@ gem "sequel"
 gem "sequel_secure_password"
 
 # other
+gem "rack-ougai"
+gem "rack-request-id"
 gem "rake"
 
 group :test, :development do
+  gem "amazing_print"
   gem "faker"
   gem "rubocop", require: false
   gem "rubocop-rspec"

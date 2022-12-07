@@ -2,7 +2,7 @@
 
 require "simplecov"
 
-SimpleCov.minimum_coverage 90
+# SimpleCov.minimum_coverage 90
 
 SimpleCov.profiles.define "custom_profile" do
   add_filter "/config/"

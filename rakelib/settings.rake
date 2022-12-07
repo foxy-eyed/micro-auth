@@ -2,5 +2,5 @@
 
 task settings: :environment do
   require "config"
-  require_relative "../../config/initializers/config"
+  require_relative "../config/initializers/config"
 end

@@ -2,5 +2,11 @@ db:
   adapter: postgresql
   host: localhost
 app:
+  name: auth
   port: 3001
   secret: secret
+logger:
+  level: info
+  log_path: log/app.log
+rabbit_mq:
+  consumer_pool: 10
